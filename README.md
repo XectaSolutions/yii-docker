@@ -4,7 +4,7 @@ This is based on the official [Yii 2.0 Framework](http://www.yiiframework.com/) 
 
 ## Modifications
 
-This is a mod by Xecta Solutions to manage Yii projects in a more easier way. The following enhancements are made to the official docker compose files.
+This is a mod by Xecta Solutions to manage Yii projects in an easier way. The following enhancements are made to the official docker compose files.
 
 - Installs the base framework by default using a composer container.
 - MySQL (host name: mysql)

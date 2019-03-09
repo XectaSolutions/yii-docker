@@ -1,8 +1,5 @@
-<p align="center">
+## Yii Docker Compose
 
-    <h1 align="center">Yii2 PHP Docker Image With MySQL & PhpMyAdmin</h1>
-
-</p>
 This is based on the official [Yii 2.0 Framework](http://www.yiiframework.com/) image on [DockerHub](https://hub.docker.com/r/yiisoftware/yii2-php/) for PHP.
 
 ## Modifications
@@ -14,6 +11,65 @@ This is a mod by Xecta Solutions to manage Yii projects in a more easier way. Th
 - PhpMyAdmin (available by default on port 8081)
 - Configurable parameters in .env file (APP_PORT and PHP_MY_ADMIN port can be managed)
 - Database is stored locally (_db-data_ folder) and can be versioned if required.
+
+## How to run
+
+Install Docker or Docker Toolbox from http://www.docker.com
+
+- Clone from Repository
+
+- Change the working directory to the downloaded folder and call docker-compose up
+
+```
+docker-compose up
+```
+
+or run add the -d option to run it in background.
+
+```
+docker-compose up -d
+```
+
+This will start the containers and will start the installation of Yii framework and composer packages. Once the installation is complete you will see the Yii home page in localhost:8080 (or the port you specified in ENV).
+
+Note: If you use docker toolbox, you might need to use the IP address of the docker machine rather than `localhost`
+
+## App Folder
+
+Yii framework will be installed in a subfolder `app`.
+
+## Database
+
+MySql stores data in local folder `.db_data`. If you delete the folder database contents will be lost. You may ignore the database contents from .gitignore by uncommenting the line in `.git-ignore` file.
+
+```
+#To ignore local db changes you may uncomment the following line
+#.db_data
+```
+
+Default user name is `root` with password `secret`
+
+PhpMyAdmin can be accessed on http://localhost:8081
+
+## Configuration
+
+Edit the .env file and modify as necessary
+
+## How to run Yii commands?
+
+You will need to use the `exec` command to access the shell of php container.
+
+```
+docker-compose exec php bash
+```
+
+Now you should be able to run composer commands or Yii commands
+
+## Stopping containers
+
+```
+docker-compose down
+```
 
 ## Official Yii Docker readme
 

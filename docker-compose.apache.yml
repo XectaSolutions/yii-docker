@@ -1,0 +1,5 @@
+version: "3"
+services:
+  php:
+    ports:
+      - "${APP_PORT}:80"

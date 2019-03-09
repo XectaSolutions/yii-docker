@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    image: phundament/nginx-one:1.9-5.1.1
+    environment:
+      - FASTCGI_PASS_HOST=php
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      # Application testing
+      - ./app/web:/app/web:delegated

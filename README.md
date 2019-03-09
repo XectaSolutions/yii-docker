@@ -12,6 +12,8 @@ This is a mod by Xecta Solutions to manage Yii projects in a more easier way. Th
 - Configurable parameters in .env file (APP_PORT and PHP_MY_ADMIN port can be managed)
 - Database is stored locally (_db-data_ folder) and can be versioned if required.
 
+Original Repo: https://github.com/yiisoft/yii2-docker
+
 ## How to run
 
 Install Docker or Docker Toolbox from http://www.docker.com

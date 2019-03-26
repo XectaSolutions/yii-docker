@@ -11,18 +11,21 @@ services:
       - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
       - PHP_ENABLE_XDEBUG
       - TEST_RUNTIME_PATH=/tmp/runtime
+      - REPOSITORY_URL=${REPO_URL}
     volumes:
       - ./tests:/tests:delegated
       - ./app:/app:delegated
       # Composer cache
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
-  composer:
-    image: composer
-    volumes:
-      - ./:/app
-    command: bash -c "composer create-project yiisoft/yii2-app-basic app || (echo App already installed. )"
-    links:
-      - mysql
+    command: bash -c "/home/init-project.sh"
+
+  # composer:
+  #   image: composer
+  #   volumes:
+  #     - ./:/app
+  #   command: bash -c "composer create-project yiisoft/yii2-app-basic app || (echo App already installed. )"
+  #   links:
+  #     - mysql
   # The Database
   mysql:
     image: mysql:${MYSQL_TAG}

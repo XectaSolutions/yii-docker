@@ -3,3 +3,5 @@
 _host-volumes
 
 \.idea/
+id_rsa
+db-data

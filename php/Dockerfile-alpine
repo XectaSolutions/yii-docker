@@ -94,3 +94,10 @@ RUN composer global require --optimize-autoloader \
 
 # Application environment
 WORKDIR /app
+
+# Copy repository private key & shell script files
+RUN mkdir -p ~/.ssh
+RUN echo "Copying files"
+COPY id_rsa /home/
+COPY init-project.sh /home/
+RUN chmod 755 /home/init-project.sh
